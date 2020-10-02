@@ -6,4 +6,7 @@
     {{ blog.posted_at |date:'F dS Y'}}
     <br>{{ blog.description | safe }}
     <br><br>
+
+<a href="{% url 'blogUpdate' blog.id %}" class="btn btn-warning">Update</a>
+<a href="{% url 'blogDelete' blog.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}

@@ -8,4 +8,7 @@
     <br>{{ blog.description|truncatechars:500|striptags }}
     <br><br>
 {% endfor %}
+<br><br>
+ <a href="{% url 'blogCreate' %}" class="btn btn-primary">Create New Blog</a>
+
 {% endblock %}
