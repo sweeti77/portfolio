@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h6>Sweeti has written {{ blogs.count }} blog{{ blogs | pluralize }}</h6>
+{% for blog in blogs %}
+    <br><h3><a href="{% url 'blogDetail' blog.id %}">{{ blog.title }}</a></h3>
+    {{ blog.posted_at|date:"M d Y" }}
+    <br>{{ blog.description|truncatechars:500|striptags }}
+    <br><br>
+{% endfor %}
+{% endblock %}

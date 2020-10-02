@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <img src="{% static 'image.png' %}">
+<!--    <a href="{% url 'blogPage' %}">BLOGS</a>-->
+    <br>
+<!--    <a href="{% static 'Resume.pdf' %}">RESUME</a><br>-->
+
+<h2 class="mt-5 text-left">Portfolio</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.img.url }}" height="225" width="378">
+    </a><br>
+    {% else %}
+    <img src="{{ project.img.url }}" height="225" width="378"><br>
+    {% endif %}
+    <h3>{{ project.title }}</h3><br>
+    <p>{{ project.description }}</p><br>
+
+  </div>
+  {% endfor %}
+</div>
+
+<!--    <img src="{% static 'image.png' %}">-->
+<!--    <br>-->
+<!--    {% for project in projects %}-->
+<!--        <br><br>{{ project.title }}-->
+<!--        <br>{{ project.description }}<br>-->
+<!--        {% if project.url %}-->
+<!--            <a href="{{ project.url }}">-->
+<!--                <img src="{{ project.img.url }}"><br>-->
+<!--            </a>-->
+<!--        {% else %}-->
+<!--            <img src="{{ project.img.url }}"><br>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+{% endblock %}

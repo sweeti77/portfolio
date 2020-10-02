@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br><h3>{{ blog.title }}</h3>
+    {{ blog.posted_at |date:'F dS Y'}}
+    <br>{{ blog.description | safe }}
+    <br><br>
+{% endblock %}
