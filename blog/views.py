@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from django.contrib.admin.views.decorators import staff_member_required
 
 from .models import Blog
 
@@ -15,7 +14,7 @@ def blogDetail(request, blog_id):
     blogObj = get_object_or_404(Blog, pk=blog_id)
     return render(request, 'blogDetail.html', {'blog':blogObj, 'headline':"BLOGS"})
 
-@staff_member_required
+
 def blogCreate(request):
     form = BlogForm(request.POST or None)
     if form.is_valid():
@@ -24,7 +23,7 @@ def blogCreate(request):
         form = BlogForm()
     return render(request, 'blog/form.html', {'form':form, 'headline':"BLOGS"})
 
-@staff_member_required
+
 def blogUpdate(request, blog_id):
     blogObj = get_object_or_404(Blog, pk=blog_id)
     form = BlogForm(request.POST or None, instance=blogObj)
@@ -34,7 +33,7 @@ def blogUpdate(request, blog_id):
     return render(request, 'blog/form.html', {'form':form, 'headline':"BLOGS"})
 
 
-@staff_member_required
+
 def blogDelete(request, blog_id):
     blogObj = get_object_or_404(Blog, pk=blog_id)
     if request.method == "POST":
