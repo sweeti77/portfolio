@@ -3,8 +3,8 @@
 {% block content %}
 
     <br><h3>{{ blog.title }}</h3>
-    {{ blog.posted_at |date:'F dS Y'}}
-    <br>{{ blog.description | safe }}
+    {{ blog.posted_at |date:'F dS Y'}}<br><br>
+    {{ blog.description | safe }}
     <br><br>
 {% if user.is_authenticated %}
 <a href="{% url 'blogUpdate' blog.id %}" class="btn btn-warning">Update</a>

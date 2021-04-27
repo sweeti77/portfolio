@@ -3,13 +3,13 @@
 {% block content %}
     {% load static %}
 
-    <img src="{% static 'image.png' %}">
-<!--    <a href="{% url 'blogPage' %}">BLOGS</a>-->
     <br>
-<!--    <a href="{% static 'Resume.pdf' %}">RESUME</a><br>-->
+    <img src="{% static 'image.jpg' %}" width="400px" height="500px">
+    <br>
+
 
 <h2 class="mt-5 text-left">Portfolio</h2>
-<hr>
+<hr><br>
 <div class="row">
   {% for project in projects %}
   <div class="col-lg-4 col-md-6">
